@@ -1,0 +1,106 @@
+.box {
+    height: 50px;
+  }
+  .header {
+    font-family: "Times New Roman", Times, serif;
+    background: url("hbg2.jpeg");
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    font-size: 35px;
+  }
+  .header p {
+    position: absolute;
+    top: 30%;
+    left: 37.5%;
+    transform: translate(-30%, -40%);
+    letter-spacing: 8px;
+  }
+  .text-white {
+    color: #ffba00;
+  }
+  .temp-heading {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ffba00;
+    margin: 10px;
+  }
+  .temp-chart {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-flex;
+  }
+  #chart {
+    padding: 10px;
+  }
+  #footer {
+    background-color: #0f2739;
+    padding: 50px;
+    text-align: center;
+  }
+  #ABOUT {
+    text-align: center;
+    background-color: #0f2739;
+    color: #fff;
+  }
+  .col-55{
+    width: 47%;
+  }
+  #aqiwgt{
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    font-size: 80px;
+    background-color: rgb(0, 153, 102); 
+    color: rgb(255, 255, 255); 
+    text-shadow: rgb(0, 0, 0) 2px 1px 1px; 
+    cursor: pointer;
+    text-align: center;
+    width: 45%;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+  .color-blue{
+    color: #0086c8;
+    font-weight: bolder;
+  }
+  #lastupdated1{
+    color: #ffba00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: rgb(0, 0, 0) 1px 1px 0px; 
+  }
+  #lastupdated2{
+    color: #ffba00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: rgb(0, 0, 0) 1px 1px 0px; 
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

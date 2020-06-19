@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AQSM | Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="mapsstyling.css">
+    <link rel="icon" href="logo.png">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav
+      class="navbar navbar-expand-lg sticky-top navbar-light navbar-collapse collapse justify-content-between"
+      style="background-color: #0F2739;"
+    >
+      <a class="navbar-brand text-white" href="#"><img src="logo.png" alt="LOGO" height="40px"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse float-right"
+        id="navbarTogglerDemo02"
+      >
+        <ul class="navbar-nav ml-auto mt-lg-1">
+          <li class="nav-item active">
+            <!-- <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a> -->
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-white"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Available Measures
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+              style="background-color: #FFBA00;"
+            >
+              <a class="dropdown-item" href="#TEMPERATURE">Temperature</a>
+              <a class="dropdown-item" href="#HUMIDITY">Humidity</a>
+              <a class="dropdown-item" href="#OZONE">Ozone</a>
+              <a class="dropdown-item" href="#NO2">NO2</a>
+              <a class="dropdown-item" href="#SO2">SO2</a>
+              <a class="dropdown-item" href="#CO">CO</a>
+              <a class="dropdown-item" href="#PM25">PM2.5</a>
+              <a class="dropdown-item" href="#PM10">PM 10</a>
+            </div>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#ABOUT">About</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a class="nav-link text-white" href="contactus.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- header -->
+    <div class="header">
+      <p>
+        AIR QUALITY SENSING AND MONITORING SYSTEM
+      </p>
+    </div>
+
+    <!-- map to select geo locations -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div id="map_wrapper">
+            <div id="map_canvas" class="mapping"></div>    
+         </div>
+        </div>
+        <div class="col-6">
+          <div id="locACAQI" style="display: none;">
+            <p><b>Last Updated:</b> <span id="lastupdated2"></span></p> <br>
+            <p><b>Current Location:</b> <span class="color-blue">Anwar Chowk, Wah Cantt</span> </p><br><br>
+            <h3 class="text-center">Data Not Available</h3>
+          </div>
+          <div id="locCUAQI" style="display: block;">
+              <div id="aqiwgt"></div>
+              <p><b>Last Updated:</b> 
+                <span id="lastupdated1"></span>
+              </p> <br>
+              <p><b>Current Location:</b> <span class="color-blue">COMSATS University Islamabad, Wah Cantt</span> </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div id="locAC" style="display: none;">
+            <!-- here goes Anwar chowk data -->
+          </div>
+          <div id="locCU"  style="display: block;">
+            <div class="container">
+              <div class="box"></div>
+              <div class="row">                
+              <a id="TEMPERATURE"></a>
+                <!-- temperature graph -->        
+                <div class="col-55 temp-chart">
+                  <canvas id="temp-chart"></canvas>
+                </div>
+              <a id="HUMIDITY"></a>
+              <!-- humidity graph -->    
+                <div class="col-55 temp-chart">
+                  <canvas id="humidity-chart"></canvas>
+                </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="box"></div>
+                <div class="row">
+                <a id="OZONE"></a>
+                  <!-- ozone graph -->        
+                  <div class="col-55 temp-chart">
+                    <canvas id="ozone-chart"></canvas>
+                  </div>
+                <a id="NO2"></a>
+                <!-- NO2 graph -->    
+                  <div class="col-55 temp-chart">
+                    <canvas id="no2-chart"></canvas>
+                  </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="box"></div>
+                  <div class="row">
+                    </div>
+                  <a id="SO2"></a>
+                    <!-- SO2 graph -->        
+                    <div class="col-55 temp-chart">
+                      <canvas id="so2-chart"></canvas>
+                    </div>
+                  <a id="CO"></a>
+                  <!-- CO graph -->    
+                    <div class="col-55 temp-chart">
+                      <canvas id="co-chart"></canvas>
+                    </div>
+                  </div>
+                <div class="container">
+                  <div class="box"></div>
+                  <div class="row">
+                    </div>
+                  <a id="PM25"></a>
+                    <!-- NH3 graph -->        
+                    <div class="col-55 temp-chart">
+                      <canvas id="pm25-chart"></canvas>
+                    </div>
+                  <a id="PM10"></a>
+                  <!-- PM10 graph -->    
+                    <div class="col-55 temp-chart">
+                      <canvas id="pm10-chart"></canvas>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- graphs with title -->
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2>About Air Quality Levels</h2><br><br>
+          <img src="value table.png" alt="Value Table" height="500px"><br><br>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <!-- footer -->
+    <section id="footer">
+      <a id="ABOUT"
+        >Developed by: devloperSection.github.io <br />
+        &copy; All Rights Revserved</a
+      >
+    </section>
+
+    <script src="mapsscript.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="apidata.js"> </script>
+  </body>
+</html>
